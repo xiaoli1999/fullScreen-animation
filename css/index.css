@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    /* 去除文字被选中蓝色背景 */
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    user-select: none;
+}
+
+html {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: darkred;
+    background: url("../img/bg.png") center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
