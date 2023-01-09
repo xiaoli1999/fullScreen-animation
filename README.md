@@ -2,11 +2,12 @@
 
 > **喜欢的话点个⭐吧，fork请先star🙏。**
 
-### 效果
-![初版.jpeg](./img/effect.gif)
-
 ### 预览
 预览地址✈️ [https://xiaoli1999.github.io/fullScreen-animation/](https://xiaoli1999.github.io/fullScreen-animation/)
+
+### 效果
+![预览](./img/effect.gif)
+![预览](./img/effect.png)
 
 ### 兼容
 兼容pc、移动端等
@@ -18,5 +19,5 @@
 ### 须知
 使用jquery
 
-### 意见&建议
+### FAQ
 有任何意见或建议请提**issues**
