@@ -6,7 +6,7 @@
 ![初版.jpeg](./img/effect.gif)
 
 ### 预览
-[预览地址✈️](https://xiaoli1999.github.io/fullScreen-animation/)
+预览地址✈️ [https://xiaoli1999.github.io/fullScreen-animation/](https://xiaoli1999.github.io/fullScreen-animation/)
 
 ### 兼容
 兼容pc、移动端等

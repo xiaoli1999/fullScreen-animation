@@ -16,6 +16,13 @@
     user-select: none;
 }
 
+a:hover,
+a:visited,
+a:link,
+a:active {
+    color: inherit;
+}
+
 html {
     width: 100%;
     height: auto;
@@ -31,10 +38,43 @@ body {
     overflow: hidden;
 }
 
+.github {
+    position: absolute;
+    bottom: 16%;
+    right: 8%;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    padding: 2px 8px 2px 4px;
+    background: #ffffff90;
+    /*backdrop-filter: blur(12px);*/
+    border-radius: 2px;
+    box-shadow: inset 0 0 8px 1px #f4f4f480;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all .24s linear;
+}
+
+.github:hover {
+    box-shadow: inset 0 0 8px 1px #ffffff, 1px 1px 6px .5px #00000060;
+}
+
+.github img {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+}
+
 
 @media only screen and (max-width: 768px) {
     body {
         background: url("../img/bg-mobile.png") center no-repeat;
         background-size: cover;
+    }
+
+    .github {
+        position: absolute;
+        bottom: 24px;
+        right: 24px;
     }
 }

@@ -15,7 +15,6 @@ const setInnerSize = () => {
 	innerH = window.innerHeight
 }
 
-
 /**
  * @function JudgePC 判断是当前浏览器信息是否为pc
  * @return { Boolean } 返回是否是pc
@@ -68,8 +67,6 @@ const setEmoteAnimate = () => {
 	const { emoteEl, emoteParams } = createEmoteElement()
 	$('body').append(emoteEl)
 
-	console.log(innerH)
-
 	const leftRange = isPc ? [-80, 80] : [-40, 40]
 	const endLeft = emoteParams.left + leftRange[Math.round(Math.random())]
 	const endTop = innerH - emoteEl.height() + Math.round(Math.random() * 10)
@@ -94,3 +91,5 @@ const start = () => setInterval(() => {
 }, isPc ? 320 : 600)
 
 $(document).ready(() => start())
+
+console.log('%c 🐇年春节全屏动画效果🌈 | 黎 | https://github.com/xiaoli1999 ', 'color: #f4f4f4;background: #444; padding:5px 0;border-radius:2px;');
