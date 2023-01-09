@@ -19,8 +19,15 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-color: darkred;
     background: url("../img/bg.png") center no-repeat;
     background-size: cover;
     overflow: hidden;
+}
+
+
+@media only screen and (max-width: 768px) {
+    body {
+        background: url("../img/bg-mobile.png") center no-repeat;
+        background-size: cover;
+    }
 }

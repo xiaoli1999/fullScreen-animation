@@ -6,17 +6,44 @@
  * @createDate 2023-01-08 16:20
  */
 
-const emoteList = ['🐰', '🐇', '🧨', '🎉', '🏮', '💰', '⛄', '❄']
+const emoteList = ['🐰', '🐇', '🧨', '🎉', '🐇', '🏮', '🐰', '💰', '⛄', '🐇', '❄', '🧧']
 
-const innerW = window.innerWidth
-const innerH = window.innerHeight
+let innerW, innerH
+
+const setInnerSize = () => {
+	innerW = window.innerWidth
+	innerH = window.innerHeight
+}
+
+
+/**
+ * @function JudgePC 判断是当前浏览器信息是否为pc
+ * @return { Boolean } 返回是否是pc
+ */
+const JudgePC = () => {
+	let userAgent
+	if (window && window.navigator) {
+		userAgent = window.navigator.userAgent;
+	} else {
+		return true;
+	}
+
+	const agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPod', 'iPad'];
+	for (let i = 0; i < agents.length; i++) {
+		if (userAgent.indexOf(agents[i]) >= 0) return false;
+	}
+	return true;
+};
+
+let isPc = JudgePC()
 
 /**
  * @function 生成随机表情元素
  * @returns {{emoteEl: HTMLDivElement, emoteParams: {left: number, top: number, opacity: number, fs: number, transitionDuration: number}}}
  */
 const createEmoteElement = () => {
-	const fs = 20 + Math.round(Math.random() * 16)
+	const fsRange = isPc ? [20, 16] : [14, 6]
+	const fs = fsRange[0] + Math.round(Math.random() * fsRange[1])
 	const left = Math.round(Math.random() * ((innerW - (fs / 2)) - (fs / 2)))
 	const top = -fs - 10
 	const opacity = ((Math.random() * 16 + 84) / 100).toFixed(2) - 0
@@ -30,7 +57,7 @@ const createEmoteElement = () => {
 		fontSize: `${fs }px`,
 		opacity: opacity,
 		zIndex: 9999,
-		textShadow: `0 0 ${ fs / 4 }px #ffffff80`,
+		textShadow: `0 0 ${ fs / 3 }px #ffffffcc`,
 		transition: `transform ${ transitionDuration }ms linear`
 	}).html(emoteList[Math.round(Math.random() * (emoteList.length - 1))])
 
@@ -41,18 +68,29 @@ const setEmoteAnimate = () => {
 	const { emoteEl, emoteParams } = createEmoteElement()
 	$('body').append(emoteEl)
 
-	const endLeft = emoteParams.left + [-80, 80][Math.round(Math.random())]
+	console.log(innerH)
+
+	const leftRange = isPc ? [-80, 80] : [-40, 40]
+	const endLeft = emoteParams.left + leftRange[Math.round(Math.random())]
 	const endTop = innerH - emoteEl.height() + Math.round(Math.random() * 10)
 	const moveDuration = innerH * 10 + Math.round(Math.random() * 4000);
 	const endScale = 1.2 + ((Math.round(Math.random() * 4) / 10).toFixed(2) - 0);
-	const scaleDuration = 1200 + Math.round(Math.random() * 2000);
+	const hideDuration = 1200 + Math.round(Math.random() * 2000);
 
 	emoteEl.animate({ left: `${ endLeft }px`, top: `${ endTop }px`, }, moveDuration, 'linear', () => {
 		emoteEl.css({ transform: `scale(${ endScale })` })
-			.animate({ opacity: 0 }, scaleDuration, 'linear', () => (emoteEl.remove()))
+			.animate({ opacity: 0 }, hideDuration, 'linear', () => (emoteEl.remove()))
 	})
 }
 
-const start = () => setInterval(() => setEmoteAnimate(), 320)
+let num = 0
+const start = () => setInterval(() => {
+	if (num % 10 === 0) {
+		setInnerSize()
+		isPc = JudgePC()
+	}
+	num += 1
+	setEmoteAnimate()
+}, isPc ? 320 : 600)
 
 $(document).ready(() => start())
