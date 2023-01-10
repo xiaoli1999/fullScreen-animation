@@ -7,6 +7,7 @@
 
 ### 效果
 ![预览](./img/effect.gif)
+![预览](./img/effect-mobile.gif)
 ![预览](./img/effect.png)
 
 ### 项目描述
