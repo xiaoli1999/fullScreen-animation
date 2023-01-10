@@ -65,6 +65,32 @@ body {
     margin-right: 6px;
 }
 
+.stats {
+    position: fixed;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats > p {
+    margin: 0 4px;
+    padding: 4px 8px;
+    font-size: 14px;
+    color: #363439;
+    font-weight: 600;
+    background: #ffffff9a;
+    border-radius: 2px;
+    box-shadow: inset 0 0 8px 1px #f4f4f480;
+
+}
+
+.stats > p > span {
+    padding-left: 4px;
+}
 
 @media only screen and (max-width: 768px) {
     body {
@@ -74,7 +100,11 @@ body {
 
     .github {
         position: absolute;
-        bottom: 24px;
+        bottom: 40px;
         right: 24px;
+    }
+
+    .stats > p {
+        font-size: 12px;
     }
 }
