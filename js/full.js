@@ -70,7 +70,7 @@ const setEmoteAnimate = () => {
 	const leftRange = isPc ? [-80, 80] : [-40, 40]
 	const endLeft = emoteParams.left + leftRange[Math.round(Math.random())]
 	const endTop = innerH - emoteEl.height() + Math.round(Math.random() * 10)
-	const moveDuration = innerH * 10 + Math.round(Math.random() * 4000);
+	const moveDuration = innerH * (isPc ? 10 : 18) + Math.round(Math.random() * 4000);
 	const endScale = 1.2 + ((Math.round(Math.random() * 4) / 10).toFixed(2) - 0);
 	const hideDuration = 1200 + Math.round(Math.random() * 2000);
 
