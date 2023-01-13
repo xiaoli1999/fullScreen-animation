@@ -41,7 +41,7 @@ let isPc = JudgePC()
  * @returns {{emoteEl: HTMLDivElement, emoteParams: {left: number, top: number, opacity: number, fs: number, transitionDuration: number}}}
  */
 const createEmoteElement = () => {
-	const fsRange = isPc ? [20, 16] : [14, 6]
+	const fsRange = isPc ? [16, 14] : [14, 6]
 	const fs = fsRange[0] + Math.round(Math.random() * fsRange[1])
 	const left = Math.round(Math.random() * ((innerW - (fs / 2)) - (fs / 2)))
 	const top = -fs - 10
@@ -56,7 +56,7 @@ const createEmoteElement = () => {
 		fontSize: `${fs }px`,
 		opacity: opacity,
 		zIndex: 9999,
-		textShadow: `0 0 ${ fs / 3 }px #ffffffcc`,
+		textShadow: `0 0 ${ 10 + fs / 2 }px #ffffffcc`,
 		transition: `transform ${ transitionDuration }ms linear`
 	}).html(emoteList[Math.round(Math.random() * (emoteList.length - 1))])
 
@@ -74,7 +74,7 @@ const setEmoteAnimate = () => {
 	const endScale = 1.2 + ((Math.round(Math.random() * 4) / 10).toFixed(2) - 0);
 	const hideDuration = 1200 + Math.round(Math.random() * 2000);
 
-	emoteEl.animate({ left: `${ endLeft }px`, top: `${ endTop }px`, }, moveDuration, 'linear', () => {
+	emoteEl.animate({ left: `${ endLeft }px`, top: `${ endTop }px` }, moveDuration, 'linear', () => {
 		emoteEl.css({ transform: `scale(${ endScale })` })
 			.animate({ opacity: 0 }, hideDuration, 'linear', () => (emoteEl.remove()))
 	})
@@ -88,7 +88,7 @@ const start = () => setInterval(() => {
 	}
 	num += 1
 	setEmoteAnimate()
-}, isPc ? 320 : 600)
+}, isPc ? 320 : 560)
 
 $(document).ready(() => start())
 
