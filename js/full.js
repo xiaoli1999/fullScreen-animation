@@ -56,7 +56,7 @@ const createEmoteElement = () => {
 		fontSize: `${fs }px`,
 		opacity: opacity,
 		zIndex: 9999,
-		textShadow: `0 0 ${ 10 + fs / 2 }px #ffffffcc`,
+		textShadow: `0 0 ${ isPc ? (6 + fs / 3) : (4 + fs / 3.5) }px #ffffffac`,
 		transition: `transform ${ transitionDuration }ms linear`
 	}).html(emoteList[Math.round(Math.random() * (emoteList.length - 1))])
 
